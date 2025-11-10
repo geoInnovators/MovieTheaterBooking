@@ -50,9 +50,9 @@
                 @foreach (var row in Model.Board)
                 {
                     <tr>
-                        @foreach (var seat in row.Split(' '))
+                        @foreach (var seat in row)
                         {
-                            if (seat == "O")
+                            if (seat == 'O')
                             {
                                 <td class="free-seat" aria-label="Available Seat" title="Available">O</td>
                             }
@@ -79,7 +79,7 @@
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         @booking
                         <form asp-action="CancelBooking" method="post" class="mb-0">
-                            <input type="hidden" name="bookingNumber" value="@booking.Replace("Booking #", "")" />
+                            <input type="hidden" name="bookingNumber" value="@booking" />
                             <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
                         </form>
                     </li>
